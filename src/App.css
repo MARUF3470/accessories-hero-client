@@ -23,7 +23,23 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.main-tool-bar {
+  height: 80px;
+  background: rgba(85, 83, 83, 0.055);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transition: ease 0.4s;
 
+}
+.main-tool-bar--scrolled{
+  height: 40px;
+}
 .App-link {
   color: #61dafb;
 }
