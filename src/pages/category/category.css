@@ -1,0 +1,19 @@
+.scrollable-component::-webkit-scrollbar {
+    width: 2px;
+    height:2px;
+  }
+  
+  /* Track */
+  .scrollable-component::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .scrollable-component::-webkit-scrollbar-thumb {
+    background: rgb(187, 81, 98);
+  }
+  
+  /* Handle on hover */
+  .scrollable-component::-webkit-scrollbar-thumb:hover {
+    background:rgb(187, 81, 98);
+  }

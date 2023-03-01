@@ -7,27 +7,24 @@ import { BsCart3, BsSuitHeart } from 'react-icons/bs';
 import { motion } from "framer-motion"
 import '../../App.css'
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import CardDrawer from './CardDrawer';
 const Header = () => {
-    const headerSticky = useRef(null)
     const [search, setSearch] = useState(false)
-    useEffect(() => {
-        const el = headerSticky.current;
-        console.log(el)
-        ScrollTrigger.create({
-            start: 'top -80',
-            end: 99999,
-            toggleClass: { className: 'main-tool-bar--scrolled', targets: '.main-tool-bar' }
-        });
+    ScrollTrigger.create({
+        start: 'top -80',
+        end: 99999,
+        toggleClass: { className: 'main-tool-bar--scrolled', targets: '.main-tool-bar' }
+    });
 
-    }, [])
     const menu = <>
         <Link className='btn btn-ghost' to='/'>Home</Link>
+        <Link className='btn btn-ghost' to='/about'>About</Link>
     </>
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
-                <div ref={headerSticky} className="w-full navbar bg-base-300">
+                <div className="w-full navbar bg-gray-700 bg-opacity-20">
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
@@ -47,18 +44,10 @@ const Header = () => {
                                                 duration: .1,
                                             }} type="text" placeholder="Type here" className="input text-sm input-bordered input-primary w-full" /> : <button onClick={() => setSearch(true)} className='btn btn-ghost p-2'><RiSearch2Line className='w-6 h-6'></RiSearch2Line></button>}
                                         <Link to='/login' className="drawer-button btn btn-ghost p-2"><FiUser className='w-6 h-6'></FiUser></Link>
-                                        <Link to='/login' className="drawer-button btn btn-ghost p-2"><BsSuitHeart className='w-6 h-6'></BsSuitHeart></Link>
+                                        <Link to='/wishlist' className="drawer-button btn btn-ghost p-2"><BsSuitHeart className='w-6 h-6'></BsSuitHeart></Link>
                                         <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost p-2"><BsCart3 className='w-6 h-6'></BsCart3></label>
-
                                     </div>
-                                    <div className="drawer-side rounded-sm">
-                                        <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-                                        <ul className="menu p-4 w-full bg-base-100 text-base-content">
-                                            <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost">X</label>
-                                            <li><a> 1</a></li>
-                                            <li><a> 2</a></li>
-                                        </ul>
-                                    </div>
+                                    <CardDrawer></CardDrawer>
                                 </div>
                             </div>
                         </ul>
