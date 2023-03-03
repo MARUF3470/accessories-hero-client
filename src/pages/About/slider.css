@@ -1,5 +1,4 @@
 .swiper {
-    background: #000;
   }
   
   .swiper-slide {
@@ -33,7 +32,7 @@
   
   .swiper-slide .text {
     font-size: 14px;
-    max-width: 500px;
+   
     line-height: 1.3;
   }
   
