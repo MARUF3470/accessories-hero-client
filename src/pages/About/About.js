@@ -68,6 +68,62 @@ const About = () => {
                 <h1 className='text-6xl font-extrabold text-slate-900 mb-10'>Our <span className='text-rose-500'>Team,</span> <br /> Many Talents</h1>
                 <TeamMembersSlider></TeamMembersSlider>
             </div>
+            <div className='w-11/12 mx-auto mt-32 mb-2 '>
+                <marquee behavior="scroll" direction="left" scrollamount="10">
+                    <div className='flex gap-4'>
+                        <img className='w-60 rounded-md border' src="https://play-lh.googleusercontent.com/1-hPxafOxdYpYZEOKzNIkSP43HXCNftVJVttoo4ucl7rsMASXW3Xr6GlXURCubE1tA=w3840-h2160-rw" alt="" />
+                        <img className='w-60 rounded-md border' src="https://web.programming-hero.com/thumbnail.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://m.media-amazon.com/images/G/31/social_share/amazon_logo._CB633266945_.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://1000logos.net/wp-content/uploads/2022/08/Ola-Cabs-Logo.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://support.content.office.net/en-us/media/f1c4b693-4670-4e7a-8102-bbf1749e83fe.jpg" alt="" />
+                        <img className='w-60 rounded-md border' src="https://futurestartup.com/wp-content/uploads/2021/06/Airbnb.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://cdn.corporate.walmart.com/dims4/WMT/78e3751/2147483647/strip/true/crop/1600x899+0+0/resize/920x517!/quality/90/?url=https%3A%2F%2Fcdn.corporate.walmart.com%2Fb5%2F37%2Fa02c03d4449d8fed8b4519933720%2Fwalmart-and-netflix-logos.jpg" alt="" />
+                        <img className='w-60 rounded-md border' src="https://play-lh.googleusercontent.com/1-hPxafOxdYpYZEOKzNIkSP43HXCNftVJVttoo4ucl7rsMASXW3Xr6GlXURCubE1tA=w3840-h2160-rw" alt="" />
+                        <img className='w-60 rounded-md border' src="https://web.programming-hero.com/thumbnail.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://m.media-amazon.com/images/G/31/social_share/amazon_logo._CB633266945_.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://1000logos.net/wp-content/uploads/2022/08/Ola-Cabs-Logo.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://support.content.office.net/en-us/media/f1c4b693-4670-4e7a-8102-bbf1749e83fe.jpg" alt="" />
+                        <img className='w-60 rounded-md border' src="https://futurestartup.com/wp-content/uploads/2021/06/Airbnb.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://cdn.corporate.walmart.com/dims4/WMT/78e3751/2147483647/strip/true/crop/1600x899+0+0/resize/920x517!/quality/90/?url=https%3A%2F%2Fcdn.corporate.walmart.com%2Fb5%2F37%2Fa02c03d4449d8fed8b4519933720%2Fwalmart-and-netflix-logos.jpg" alt="" />
+                    </div>
+                </marquee>
+            </div>
+            <div className='w-11/12 mx-auto mb-24 '>
+                <marquee behavior="scroll" direction="right" scrollamount="10">
+                    <div className='flex gap-4'>
+                        <img className='w-60 rounded-md border' src="https://play-lh.googleusercontent.com/1-hPxafOxdYpYZEOKzNIkSP43HXCNftVJVttoo4ucl7rsMASXW3Xr6GlXURCubE1tA=w3840-h2160-rw" alt="" />
+                        <img className='w-60 rounded-md border' src="https://web.programming-hero.com/thumbnail.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://m.media-amazon.com/images/G/31/social_share/amazon_logo._CB633266945_.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://1000logos.net/wp-content/uploads/2022/08/Ola-Cabs-Logo.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://support.content.office.net/en-us/media/f1c4b693-4670-4e7a-8102-bbf1749e83fe.jpg" alt="" />
+                        <img className='w-60 rounded-md border' src="https://futurestartup.com/wp-content/uploads/2021/06/Airbnb.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://cdn.corporate.walmart.com/dims4/WMT/78e3751/2147483647/strip/true/crop/1600x899+0+0/resize/920x517!/quality/90/?url=https%3A%2F%2Fcdn.corporate.walmart.com%2Fb5%2F37%2Fa02c03d4449d8fed8b4519933720%2Fwalmart-and-netflix-logos.jpg" alt="" />
+                        <img className='w-60 rounded-md border' src="https://play-lh.googleusercontent.com/1-hPxafOxdYpYZEOKzNIkSP43HXCNftVJVttoo4ucl7rsMASXW3Xr6GlXURCubE1tA=w3840-h2160-rw" alt="" />
+                        <img className='w-60 rounded-md border' src="https://web.programming-hero.com/thumbnail.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://m.media-amazon.com/images/G/31/social_share/amazon_logo._CB633266945_.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://1000logos.net/wp-content/uploads/2022/08/Ola-Cabs-Logo.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://support.content.office.net/en-us/media/f1c4b693-4670-4e7a-8102-bbf1749e83fe.jpg" alt="" />
+                        <img className='w-60 rounded-md border' src="https://futurestartup.com/wp-content/uploads/2021/06/Airbnb.png" alt="" />
+                        <img className='w-60 rounded-md border' src="https://cdn.corporate.walmart.com/dims4/WMT/78e3751/2147483647/strip/true/crop/1600x899+0+0/resize/920x517!/quality/90/?url=https%3A%2F%2Fcdn.corporate.walmart.com%2Fb5%2F37%2Fa02c03d4449d8fed8b4519933720%2Fwalmart-and-netflix-logos.jpg" alt="" />
+                    </div>
+                </marquee>
+            </div>
+            <div className='h-80 mb-8 w-full py-14' style={{ backgroundImage: `url("https://static.vecteezy.com/system/resources/previews/007/201/569/original/glitch-abstract-shape-with-gradient-purple-color-background-free-vector.jpg")` }}>
+                <div className='h-48 bg-white w-3/4 mx-auto my-auto border lg:flex justify-between p-10 items-center'>
+                    <h1 className='lg:text-3xl font-bold text-slate-900 w-full'>Subscribe for <br />Latest Trends & Offers</h1>
+                    <div className='w-full'>
+                        <form>
+                            <div className="relative">
+                                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </div>
+                                <input type="search" id="default-search" className="block rounded-none w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your email" required />
+                                <button type="submit" className="text-white rounded-none absolute right-2.5 bottom-2.5 bg-slate-800 hover:bg-slate-900 font-medium  text-sm px-4 py-2">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

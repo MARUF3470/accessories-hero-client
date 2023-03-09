@@ -56,7 +56,8 @@ const TeamMembersSlider = () => {
                         </figure>
                         <div className="card-body">
                             <div className="card-actions  justify-end h-full items-end">
-                                <button className=" relative -right-10 btn btn-primary"><BiShareAlt className="text-lg"></BiShareAlt></button>
+                                <button className=" relative -right-10 btn btn-primary share"><BiShareAlt className="text-lg"></BiShareAlt></button>
+
                             </div>
                         </div>
                     </div>
@@ -139,7 +140,7 @@ const TeamMembersSlider = () => {
                             <img className="h-56 w-full" src="https://media.istockphoto.com/id/515235898/photo/studio-shot-of-young-beautiful-woman.jpg?s=612x612&w=0&k=20&c=S8Ik7gPGTOq5WoI5DeaBFt_-DHHWWaq5lyK3W_AhLjg=" alt="" />
                         </figure>
                         <div className="card-body">
-                            <div className="card-actions  justify-end h-full items-end">
+                            <div className="card-actions  justify-end h-full items-end s">
                                 <button className=" relative -right-10 btn btn-primary"><BiShareAlt className="text-lg"></BiShareAlt></button>
                             </div>
                         </div>

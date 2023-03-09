@@ -14,7 +14,7 @@ const Home = () => {
                     duration: 0.8,
                     delay: 0.5,
                     ease: [0, 0.71, 0.2, 1.01]
-                }} className='grid lg:grid-cols-2 items-center w-11/12 mx-auto'>
+                }} className='grid lg:grid-cols-2 items-center w-11/12 mx-auto mb-5 lg:mb-0'>
                 <div>
                     <Lottie animationData={musicAnimation} loop={true} />
                 </div>

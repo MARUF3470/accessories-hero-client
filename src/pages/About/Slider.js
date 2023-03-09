@@ -61,7 +61,6 @@ const Slider = () => {
                     <div className="text text-center mt-10" data-swiper-parallax="-100">
                         <p>
                             Saving the world is a monumental task that requires a collective effort from individuals, organizations, and governments across the globe. It's about taking small steps in our daily lives to reduce our carbon footprint, conserve resources, and protect the environment. It's also about advocating for policies and practices that promote sustainability and foster a greener future.
-
                             By working together, we can create a world that is more sustainable, equitable, and resilient. Let's Save The World Together is not just a slogan but a rallying cry for all of us to do our part and contribute to a better future for ourselves and future generations.
                         </p>
                     </div>
