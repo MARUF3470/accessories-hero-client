@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { IoMdClose } from 'react-icons/io';
 import { RiSearch2Line } from 'react-icons/ri';
@@ -9,18 +9,46 @@ import '../../App.css'
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import CardDrawer from './CardDrawer';
 import Footer from './Footer';
+import { AuthContext } from '../../Authentication/AuthProvider';
+import { FaUser } from 'react-icons/fa';
 const Header = () => {
+    const { user, logout } = useContext(AuthContext)
+    const handleLogout = () => {
+        logout()
+            .then(res => { })
+            .catch(err => console.log(err))
+    }
     const [search, setSearch] = useState(false)
     ScrollTrigger.create({
         start: 'top -80',
         end: 99999,
         toggleClass: { className: 'main-tool-bar--scrolled', targets: '.main-tool-bar' }
     });
-
     const menu = <>
-        <Link className='btn btn-ghost' to='/'>Home</Link>
-        <Link className='btn btn-ghost' to='/about'>About</Link>
-        <Link className='btn btn-ghost' to='/contact'>Contact Us</Link>
+        {user ? <div className="avatar btn btn-circle btn-ghost">
+            <div className="w-12 rounded-full">
+                <img src={user?.photoURL} alt='user' />
+            </div>
+        </div> : <FaUser className='w-8 h-8'></FaUser>}
+        <Link className='btn btn-ghost focus:btn-warning' to='/'>Home</Link>
+        <Link className='btn btn-ghost focus:btn-warning' to='/about'>About</Link>
+        <Link className='btn btn-ghost focus:btn-warning' to='/contact'>Contact Us</Link>
+        <li className='btn btn-ghost p-0'>
+            <a>
+                Pages
+                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+            </a>
+            <ul className="bg-white w-48 lg:w-72 p-4 rounded-none">
+                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/addproduct'>Add Product</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>My Product</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>All Users</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>Wishlist</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>Cart</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/login'>Sign In</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/registretion'>Register</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.2 }}><Link onClick={handleLogout} className='hover:text-purple-500'>Sign Out</Link></motion.li>
+            </ul>
+        </li>
     </>
     return (
         <div className="drawer">

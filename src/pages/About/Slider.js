@@ -26,7 +26,7 @@ const Slider = () => {
                     slot="container-start"
                     className="parallax-bg"
                     style={{
-                        "background-image":
+                        "backgroundImage":
                             "url(https://www.pexels.com/photo/1000445/download/)",
                     }}
                     data-swiper-parallax="-23%"
