@@ -23,7 +23,8 @@ const AddProduct = () => {
                         type: data.type,
                         name: data.name,
                         price: data.price,
-                        img: imgdata.data.url
+                        img: imgdata.data.url,
+                        advertise: false,
                     }
                     console.log(product)
                     fetch('http://localhost:5000/products', {

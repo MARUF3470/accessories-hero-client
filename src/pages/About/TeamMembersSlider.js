@@ -52,7 +52,7 @@ const TeamMembersSlider = () => {
                 <SwiperSlide className="padding mb-10 geeks">
                     <div className="card h-56 image-full">
                         <figure>
-                            <img className="h-56 w-full" src="https://scontent.fzyl2-1.fna.fbcdn.net/v/t39.30808-6/333050794_912817579864022_6506463859100443390_n.jpg?stp=cp6_dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGBKx2wwZRd_oysCeMac0-0PRGQhAn_BIg9EZCECf8EiEBkV5_WkKysNCh4Z09enoNAtNsNH7YuzbroOH_t_Blq&_nc_ohc=LSZAPn0-QB4AX8tQSTs&_nc_ht=scontent.fzyl2-1.fna&oh=00_AfD14TAPSQyWKfnzAWLzrcMRDtC_gGJi0EVyWJn9k0temg&oe=6406601E" alt="" />
+                            <img className="h-56 w-full" src="https://media.istockphoto.com/id/973481674/photo/stylish-man-posing-on-grey-background.jpg?s=612x612&w=0&k=20&c=zn4YXiU1RX4-DHz8XNSSB3PoEKBxpfeFtRTESWX6OWQ=" alt="" />
                         </figure>
                         <div className="card-body">
                             <div className="card-actions  justify-end h-full items-end">
@@ -67,7 +67,7 @@ const TeamMembersSlider = () => {
                 <SwiperSlide className="padding mb-10 geeks">
                     <div className="card h-56 image-full">
                         <figure>
-                            <img className="h-56 w-full" src="https://scontent.fzyl2-1.fna.fbcdn.net/v/t39.30808-6/280373002_561545392144199_1719643930407709182_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeG1IaBWgxEkw_bHvfVwyG8EGijMPHkYXHYaKMw8eRhcdtABcmGVc5gQzoU1yM9jQg_KZMfirUwYTteYgIF3hVyC&_nc_ohc=boi19NwrkV8AX88rJh9&_nc_oc=AQkn5rnRHh1DdS3D_pFaWg82Evbl6BnBLnpdgyIzepEFQJ7z2e4-DGt02BAIlyqYln8&_nc_ht=scontent.fzyl2-1.fna&oh=00_AfBC5zSlHRiWM-3G8J2vyw5Z7UKnvow3tTA9ym3CiSjHjA&oe=6406BA0A" alt="" />
+                            <img className="h-56 w-full" src="https://media.istockphoto.com/id/1031366414/photo/handsome-man-in-black-suit-with-white-shirt.jpg?s=612x612&w=0&k=20&c=aNCumlpttLvvAUineNrukPG3tG9aqj-DkR71JnSSiUE=" alt="" />
                         </figure>
                         <div className="card-body">
                             <div className="card-actions  justify-end h-full items-end">

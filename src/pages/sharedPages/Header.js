@@ -30,7 +30,8 @@ const Header = () => {
                 <img src={user?.photoURL} alt='user' />
             </div>
         </div> : <FaUser className='w-8 h-8'></FaUser>}
-        <Link className='btn btn-ghost focus:btn-warning' to='/'>Home</Link>
+        <Link className='btn btn-ghost' to='/'>Home</Link>
+        <Link className='btn btn-ghost focus:btn-warning' to='/shop'>Shop</Link>
         <Link className='btn btn-ghost focus:btn-warning' to='/about'>About</Link>
         <Link className='btn btn-ghost focus:btn-warning' to='/contact'>Contact Us</Link>
         <li className='btn btn-ghost p-0'>
@@ -40,7 +41,7 @@ const Header = () => {
             </a>
             <ul className="bg-white w-48 lg:w-72 p-4 rounded-none">
                 <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/addproduct'>Add Product</Link></motion.li>
-                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>My Product</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/myproducts'>My Product</Link></motion.li>
                 <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>All Users</Link></motion.li>
                 <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>Wishlist</Link></motion.li>
                 <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>Cart</Link></motion.li>
