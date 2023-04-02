@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion'
-import { BiDownArrow, BiSearch } from 'react-icons/bi';
+import { BiSearch } from 'react-icons/bi';
+import { AiOutlineArrowDown } from 'react-icons/ai'
+import { useQuery } from 'react-query';
+import ShopProduct from './ShopProduct';
 const Shop = () => {
     const [BrandsMenu, setBrandsMenu] = useState(false)
+    const [quickView, setQuickView] = useState(null)
+    const handleClose = event => {
+        setQuickView(null)
+    }
+    const { data: products = [], refetch, isLoading } = useQuery({
+        queryKey: [],
+        queryFn: async () => {
+            const result = await fetch('http://localhost:5000/products')
+            const data = await result.json()
+            return data
+        }
+    })
     return (
         <div className='w-11/12 mx-auto grid lg:grid-cols-4 gap-2'>
-            <div className=' h-screen'>
+            <div className='h-screen'>
                 <div>
-                    <motion.div onClick={() => setBrandsMenu(!BrandsMenu)}><h4 className='text-lg'>Brands <BiDownArrow className='inline'></BiDownArrow></h4></motion.div>
+                    <motion.div onClick={() => setBrandsMenu(!BrandsMenu)}><h4 className='text-lg'>Brands <AiOutlineArrowDown className='inline'></AiOutlineArrowDown></h4></motion.div>
                     <hr />
                     <AnimatePresence>
                         {BrandsMenu && (
@@ -42,10 +57,22 @@ const Shop = () => {
                 </div>
 
             </div>
-            <div className='col-span-3 border '>
-
+            <div className='col-span-3'>
+                {
+                    products?.map(product => <ShopProduct key={product._id} product={product} refetch={refetch} setQuickView={setQuickView}></ShopProduct>)
+                }
             </div>
-
+            {
+                quickView && <div>
+                    <input type="checkbox" id="booking-modal" className="modal-toggle" />
+                    <div className="modal ">
+                        <div className="modal-box relative rounded-sm w-11/12 max-w-6xl">
+                            <label htmlFor="booking-modal" onClick={() => handleClose()} className="btn btn-sm rounded-sm btn-outline absolute right-2 top-2">✕</label>
+                            <h5 className="text-xl"><strong>{quickView.name}</strong></h5>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     );
 };

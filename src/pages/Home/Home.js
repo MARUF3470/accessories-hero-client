@@ -59,7 +59,7 @@ const Home = () => {
                 {
                     advertiseProducts.length ? <div className='grid lg:grid-cols-4'>
                         {
-                            advertiseProducts.map(advertiseProduct => <AdvertiseProduct key={advertiseProduct._id} advertiseProduct={advertiseProduct}></AdvertiseProduct>)
+                            advertiseProducts.map(advertiseProduct => <AdvertiseProduct key={advertiseProduct._id} advertiseProduct={advertiseProduct} refetch={refetch}></AdvertiseProduct>)
                         }
                     </div> : <h4 className='font-semibold text-center text-base'>No product to show</h4>
                 }

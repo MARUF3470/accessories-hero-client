@@ -32,7 +32,6 @@ const MyProducts = () => {
                     </table>
                 </div>
             </div>
-
         </div>
     );
 };

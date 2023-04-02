@@ -54,7 +54,7 @@ const Header = () => {
                 <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/addproduct'>Add Product</Link></motion.li>
                 <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/myproducts'>My Product</Link></motion.li>
                 <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>All Users</Link></motion.li>
-                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>Wishlist</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.2 }}><Link to='/wishlist' className='hover:text-purple-500'>Wishlist</Link></motion.li>
                 <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='cartitems'>Cart</Link></motion.li>
                 {user?.email ? <motion.li whileHover={{ scale: 1.2 }}><Link onClick={handleLogout} className='hover:text-purple-500'>Sign Out</Link></motion.li> : <><motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/login'>Sign In</Link></motion.li>
                     <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/registretion'>Register</Link></motion.li></>}
