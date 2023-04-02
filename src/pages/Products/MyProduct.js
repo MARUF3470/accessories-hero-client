@@ -13,7 +13,7 @@ const MyProducts = () => {
     })
     return (
         <div>
-            <div className='py-24 bg-slate-100'><h1 className='text-6xl font-extrabold text-slate-900 text-center'>My Cart</h1></div>
+            <div className='py-24 bg-slate-100'><h1 className='text-6xl font-extrabold text-slate-900 text-center'>My Products</h1></div>
             <div>
                 <div className="overflow-x-auto w-11/12 mx-auto my-10">
                     <table className="table w-full">
