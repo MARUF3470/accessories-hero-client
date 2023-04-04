@@ -2,29 +2,26 @@ import React from 'react';
 import { useContext } from 'react';
 import { useQuery } from 'react-query';
 import { AuthContext } from '../../Authentication/AuthProvider';
-import CartItem from '../Cart/CartItem';
 import { BiArrowFromLeft } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import WishlistItem from './WishlistItem';
+import { toast } from 'react-hot-toast';
 
 const Wishlist = () => {
-    const { user } = useContext(AuthContext)
-    const { data: products = [], isLoading, refetch } = useQuery({
-        queryKey: [user?.email],
-        queryFn: async () => {
-            const result = await fetch(`http://localhost:5000/cartproducts/${user?.email}`);
-            const data = await result.json()
-            return data
-        }
-    })
-    const prices = products.map(product => (parseInt(product.price) * product.quantity))
-    const totalprice = prices.reduce((acc, curr) => acc + curr, 0)
-    refetch()
+    const products = JSON.parse(localStorage.getItem('myWishlist'));
+    console.log(products)
+    const handleDelete = (id) => {
+        const updatedArray = products.filter(product => product.id !== id)
+        localStorage.setItem("myWishlist", JSON.stringify(updatedArray));
+        window.location.reload()
+        toast.error('Removed')
+    }
     return (
         <div>
             <div className='py-24 bg-slate-100'><h1 className='text-6xl font-extrabold text-slate-900 text-center'>Wishlist</h1></div>
             <div className='w-11/12 mx-auto py-5 px-3 bg-slate-50 mt-10'><Link className='hover:text-red-500' to='/shop'>Continue Shopping <BiArrowFromLeft className='w-6 h-6 inline'></BiArrowFromLeft></Link></div>
             <div>
-                <div className="overflow-x-auto w-11/12 mx-auto my-4">
+                {products.length ? <div className="overflow-x-auto w-11/12 mx-auto my-4">
                     <table className="table w-full">
                         <thead>
                             <tr >
@@ -36,27 +33,11 @@ const Wishlist = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {products.map(product => <CartItem key={product._id} product={product} refetch={refetch}></CartItem>)}
+                            {products.map(product => <WishlistItem key={product.id} product={product} handleDelete={handleDelete} ></WishlistItem>)}
                         </tbody>
                     </table>
-                </div>
+                </div> : <p className='text-center font-bold my-9'>No Product is in your wishlist</p>}
             </div>
-            {/* <div className='lg:flex justify-end'>
-                <div className='w-60 mx-auto lg:w-96 lg:mr-14 items-end'>
-                    <h4 className='text-xl font-bold text-gray-900 my-3'>Cart Total</h4>
-                    <div className='border'>
-                        <div className=' flex justify-between items-center py-2 px-8'>
-                            <p className='text-slate-900 font-medium'>Subtotal</p>
-                            <p>${totalprice}</p>
-                        </div>
-                        <hr />
-                        <div className=' flex justify-between items-center py-2 px-8'>
-                            <p className='text-slate-900 font-medium'>Total</p>
-                            <p>${totalprice}</p>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
         </div>
     );
 };

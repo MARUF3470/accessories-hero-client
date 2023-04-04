@@ -4,14 +4,13 @@ import { BiSearch } from 'react-icons/bi';
 import { AiOutlineArrowDown } from 'react-icons/ai'
 import { useQuery } from 'react-query';
 import ShopProduct from './ShopProduct';
+import QuickViewModal from './QuickViewModal';
 const Shop = () => {
     const [BrandsMenu, setBrandsMenu] = useState(false)
     const [quickView, setQuickView] = useState(null)
-    const handleClose = event => {
-        setQuickView(null)
-    }
+
     const { data: products = [], refetch, isLoading } = useQuery({
-        queryKey: [],
+        queryKey: ['products'],
         queryFn: async () => {
             const result = await fetch('http://localhost:5000/products')
             const data = await result.json()
@@ -19,8 +18,8 @@ const Shop = () => {
         }
     })
     return (
-        <div className='w-11/12 mx-auto grid lg:grid-cols-4 gap-2'>
-            <div className='h-screen'>
+        <div className='w-11/12 mx-auto grid lg:grid-cols-4 gap-2 mt-10'>
+            <div className='lg:h-screen'>
                 <div>
                     <motion.div onClick={() => setBrandsMenu(!BrandsMenu)}><h4 className='text-lg'>Brands <AiOutlineArrowDown className='inline'></AiOutlineArrowDown></h4></motion.div>
                     <hr />
@@ -58,21 +57,13 @@ const Shop = () => {
 
             </div>
             <div className='col-span-3'>
-                {
-                    products?.map(product => <ShopProduct key={product._id} product={product} refetch={refetch} setQuickView={setQuickView}></ShopProduct>)
-                }
-            </div>
-            {
-                quickView && <div>
-                    <input type="checkbox" id="booking-modal" className="modal-toggle" />
-                    <div className="modal ">
-                        <div className="modal-box relative rounded-sm w-11/12 max-w-6xl">
-                            <label htmlFor="booking-modal" onClick={() => handleClose()} className="btn btn-sm rounded-sm btn-outline absolute right-2 top-2">✕</label>
-                            <h5 className="text-xl"><strong>{quickView.name}</strong></h5>
-                        </div>
-                    </div>
+                <div className='flex flex-wrap'>
+                    {
+                        products?.map(product => <ShopProduct key={product._id} product={product} refetch={refetch} setQuickView={setQuickView}></ShopProduct>)
+                    }
                 </div>
-            }
+            </div>
+            <QuickViewModal quickView={quickView} setQuickView={setQuickView} refetch={refetch}></QuickViewModal>
         </div>
     );
 };

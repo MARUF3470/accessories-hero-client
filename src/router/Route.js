@@ -47,7 +47,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <ProductsType></ProductsType>
+                element: <ProductsType></ProductsType>,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path: '/wishlist',

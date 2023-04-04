@@ -6,7 +6,10 @@ import { motion } from "framer-motion";
 import Categories from '../category/Categories';
 import { useQuery } from 'react-query';
 import AdvertiseProduct from './AdvertiseProduct';
+import QuickViewModal from '../shop/QuickViewModal';
+import { useState } from 'react';
 const Home = () => {
+    const [quickView, setQuickView] = useState(null)
     const { data: products = [], refetch, isError } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
@@ -45,6 +48,7 @@ const Home = () => {
                         <button className='btn btn-outline hover:bg-zinc-900 border-1 border-zinc-800 rounded-none mt-4 lg:mt-10'>Shop Now <BsArrowRight className='w-5 h-5 ml-1'></BsArrowRight></button>
                     </div>
                 </motion.div>
+                <QuickViewModal quickView={quickView} setQuickView={setQuickView} refetch={refetch}></QuickViewModal>
             </div>
             <Categories></Categories>
             <div className='w-11/12 mx-auto my-10'>
@@ -59,7 +63,7 @@ const Home = () => {
                 {
                     advertiseProducts.length ? <div className='grid lg:grid-cols-4'>
                         {
-                            advertiseProducts.map(advertiseProduct => <AdvertiseProduct key={advertiseProduct._id} advertiseProduct={advertiseProduct} refetch={refetch}></AdvertiseProduct>)
+                            advertiseProducts.map(advertiseProduct => <AdvertiseProduct key={advertiseProduct._id} advertiseProduct={advertiseProduct} refetch={refetch} setQuickView={setQuickView}></AdvertiseProduct>)
                         }
                     </div> : <h4 className='font-semibold text-center text-base'>No product to show</h4>
                 }
