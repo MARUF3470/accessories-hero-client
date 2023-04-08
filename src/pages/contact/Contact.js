@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
 import SendEmail from './SendEmail';
-
 const Contact = () => {
     return (
         <div>

@@ -12,7 +12,7 @@ const Shop = () => {
     const { data: products = [], refetch, isLoading } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const result = await fetch('http://localhost:5000/products')
+            const result = await fetch('https://accessories-hero-server.vercel.app/products')
             const data = await result.json()
             return data
         }
@@ -57,7 +57,7 @@ const Shop = () => {
 
             </div>
             <div className='col-span-3'>
-                <div className='flex flex-wrap'>
+                <div className='grid grid-cols-2 lg:grid-cols-4 lg:gap-10'>
                     {
                         products?.map(product => <ShopProduct key={product._id} product={product} refetch={refetch} setQuickView={setQuickView}></ShopProduct>)
                     }

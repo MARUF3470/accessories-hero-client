@@ -6,7 +6,7 @@ const CartItem = ({ product, refetch }) => {
         const quantity = parseInt(product?.quantity)
         if (quantity > 1) {
             const newQuantity = quantity - 1
-            fetch(`http://localhost:5000/cartproduct/${product?._id}`, {
+            fetch(`https://accessories-hero-server.vercel.app/cartproduct/${product?._id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -24,7 +24,7 @@ const CartItem = ({ product, refetch }) => {
     const handleIncreseQuantity = () => {
         const quantity = parseInt(product?.quantity)
         const newQuantity = quantity + 1
-        fetch(`http://localhost:5000/cartproduct/${product?._id}`, {
+        fetch(`https://accessories-hero-server.vercel.app/cartproduct/${product?._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -39,7 +39,7 @@ const CartItem = ({ product, refetch }) => {
             })
     }
     const handleDelete = () => {
-        fetch(`http://localhost:5000/cartproduct/${product?._id}`, {
+        fetch(`https://accessories-hero-server.vercel.app/cartproduct/${product?._id}`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

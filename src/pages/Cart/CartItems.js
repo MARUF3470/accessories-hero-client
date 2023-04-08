@@ -11,11 +11,18 @@ const CartItems = () => {
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: [user?.email],
         queryFn: async () => {
-            const result = await fetch(`http://localhost:5000/cartproducts/${user?.email}`);
+            const result = await fetch(`https://accessories-hero-server.vercel.app/cartproducts/${user?.email}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('ACCESSORIES_HERO-token')}`
+                }
+            });
             const data = await result.json()
             return data
         }
     })
+    if (isLoading) {
+        return <p className='text-center font-bold'>Loading....</p>
+    }
     const prices = products.map(product => (parseInt(product.price) * product.quantity))
     const totalprice = prices.reduce((acc, curr) => acc + curr, 0)
     refetch()

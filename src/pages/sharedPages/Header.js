@@ -17,12 +17,21 @@ import Drawer from 'react-modern-drawer'
 
 //import styles 👇
 import 'react-modern-drawer/dist/index.css'
+import { useQuery } from 'react-query';
 const Header = () => {
     const [isOpen, setIsOpen] = React.useState(false)
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
     }
     const { user, logout } = useContext(AuthContext)
+    const { data: suser = [], isLoading, refetch } = useQuery({
+        queryKey: ['users', user?.email],
+        queryFn: async () => {
+            const result = await fetch(`https://accessories-hero-server.vercel.app/users/${user?.email}`)
+            const data = await result.json()
+            return data
+        }
+    })
     const handleLogout = () => {
         logout()
             .then(res => { })
@@ -40,10 +49,10 @@ const Header = () => {
                 <img src={user?.photoURL} alt='user' />
             </div>
         </div> : <FaUser className='w-8 h-8'></FaUser>}
-        <Link className='btn btn-ghost' to='/'>Home</Link>
-        <Link className='btn btn-ghost focus:btn-warning' to='/shop'>Shop</Link>
-        <Link className='btn btn-ghost focus:btn-warning' to='/about'>About</Link>
-        <Link className='btn btn-ghost focus:btn-warning' to='/contact'>Contact Us</Link>
+        <Link className='btn btn-ghost rounded-sm' to='/'>Home</Link>
+        <Link className='btn btn-ghost rounded-sm focus:btn-warning' to='/shop'>Shop</Link>
+        <Link className='btn btn-ghost rounded-sm focus:btn-warning' to='/about'>About</Link>
+        <Link className='btn btn-ghost rounded-sm focus:btn-warning' to='/contact'>Contact Us</Link>
 
         <li className='btn btn-ghost p-0'>
             <a>
@@ -51,9 +60,14 @@ const Header = () => {
                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
             </a>
             <ul className="bg-white w-48 lg:w-72 p-4 rounded-none">
-                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/addproduct'>Add Product</Link></motion.li>
-                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/myproducts'>My Product</Link></motion.li>
-                <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500'>All Users</Link></motion.li>
+
+                {
+                    suser?.role && <div>
+                        <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/addproduct'>Add Product</Link></motion.li>
+                        <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/myproducts'>My Product</Link></motion.li>
+                        <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/users'>All Users</Link></motion.li>
+                    </div>
+                }
                 <motion.li whileHover={{ scale: 1.2 }}><Link to='/wishlist' className='hover:text-purple-500'>Wishlist</Link></motion.li>
                 <motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='cartitems'>Cart</Link></motion.li>
                 {user?.email ? <motion.li whileHover={{ scale: 1.2 }}><Link onClick={handleLogout} className='hover:text-purple-500'>Sign Out</Link></motion.li> : <><motion.li whileHover={{ scale: 1.2 }}><Link className='hover:text-purple-500' to='/login'>Sign In</Link></motion.li>
@@ -80,7 +94,7 @@ const Header = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.5 }} className="w-full navbar bg-gray-600 sticky top-0 z-50 bg-opacity-10">
+                    transition={{ delay: 0.2, duration: 0.5 }} className="w-full navbar bg-white shadow-md sticky top-0 z-50">
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>

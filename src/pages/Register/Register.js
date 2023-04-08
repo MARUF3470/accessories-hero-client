@@ -40,20 +40,20 @@ const Register = () => {
                                 email: user.email
                             }
                             toast.success('User registration done')
-                            // fetch('https://filter-house-server.vercel.app/jwt', {
-                            //     method: 'POST',
-                            //     headers: {
-                            //         'content-type': 'application/json'
-                            //     },
-                            //     body: JSON.stringify(currentUser)
-                            // })
-                            //     .then(res => res.json())
-                            //     .then(data => {
-                            //         console.log(data);
+                            fetch('https://accessories-hero-server.vercel.app/jwt', {
+                                method: 'POST',
+                                headers: {
+                                    'content-type': 'application/json'
+                                },
+                                body: JSON.stringify(currentUser)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data);
 
-                            //         localStorage.setItem('filterhouse-token', data.token);
-                            //         navigate(from, { replace: true });
-                            //     });
+                                    localStorage.setItem('ACCESSORIES_HERO-token', data.token);
+                                    navigate(from, { replace: true });
+                                });
                             event.target.reset()
                             console.log(imgData.data.url)
                             const profile = {
@@ -75,7 +75,7 @@ const Register = () => {
                 name: profile.displayName,
                 img: profile.photoURL
             }
-            fetch('http://localhost:5000/users', {
+            fetch('https://accessories-hero-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

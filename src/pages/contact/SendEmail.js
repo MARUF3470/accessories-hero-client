@@ -15,6 +15,7 @@ const SendEmail = () => {
             .then((result) => {
                 console.log(result.text);
                 toast.success('Your email send successfully')
+                event.target.reset()
             }, (error) => {
                 console.log(error.text);
             });

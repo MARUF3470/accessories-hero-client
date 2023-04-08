@@ -4,35 +4,43 @@ import { BsCart, BsHeart, BsLink } from 'react-icons/bs';
 import { AuthContext } from '../../Authentication/AuthProvider';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 const QuickViewModal = ({ quickView, setQuickView, refetch }) => {
     const [quantity, setQuantity] = useState(1)
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleClose = event => {
         setQuickView(null)
     }
     const handleCartItems = () => {
-        const cartItem = {
-            email: user.email,
-            img: quickView.img,
-            name: quickView.name,
-            type: quickView.type,
-            price: quickView.price,
-            quantity
-        }
-        fetch('http://localhost:5000/cartproducts', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(cartItem),
-        })
-            .then(res => res.json())
-            .then(data => {
-                refetch()
-                if (data.acknowledged) {
-                    return toast.success('Product added to the cart')
-                }
+        if (user) {
+            const cartItem = {
+                email: user.email,
+                img: quickView.img,
+                name: quickView.name,
+                type: quickView.type,
+                price: quickView.price,
+                quantity
+            }
+            fetch('https://accessories-hero-server.vercel.app/cartproducts', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(cartItem),
             })
+                .then(res => res.json())
+                .then(data => {
+                    refetch()
+                    if (data.acknowledged) {
+                        return toast.success('Product added to the cart')
+                    }
+                })
+        }
+        else {
+            toast('You need to login first')
+            return navigate('/login')
+        }
     }
     const handleDecreseQuantity = () => {
         if (quantity > 1) {
@@ -84,7 +92,7 @@ const QuickViewModal = ({ quickView, setQuickView, refetch }) => {
                                     <button onClick={handleWishList} className='btn bg-sky-400 border-sky-400 rounded-none mt-4 lg:mt-10'><BsHeart className='w-6 h-6'></BsHeart> </button>
                                 </div>
                                 <div className='tooltip tooltip-bottom' data-tip="Product Details">
-                                    <button className='btn bg-red-500 border-red-500 rounded-none mt-4 lg:mt-10'><BsLink className='w-6 h-6'></BsLink></button>
+                                    <button className='btn bg-red-500 border-red-500 rounded-none mt-4 lg:mt-10'><Link to={`/details/${quickView?._id}`}><BsLink className='w-6 h-6'></BsLink></Link></button>
                                 </div>
                             </div>
                         </div>

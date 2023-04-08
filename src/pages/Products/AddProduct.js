@@ -27,7 +27,7 @@ const AddProduct = () => {
                         advertise: false,
                     }
                     console.log(product)
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://accessories-hero-server.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -88,6 +88,7 @@ const AddProduct = () => {
                         <option value='Ear Buds'>Ear Buds</option>
                         <option value='Mini SoundBox'>Mini SoundBox</option>
                         <option value='Big SoundBox'>Big SoundBox</option>
+                        <option value='Workout Instrument'>Workout Instrument</option>
                     </select>
                     {errors.type && <p className='text-red-400 text-xs mt-1'>{errors.type.message}</p>}
                 </div>

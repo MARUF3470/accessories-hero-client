@@ -11,7 +11,7 @@ const CardDrawer = ({ toggleDrawer }) => {
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: [user?.email],
         queryFn: async () => {
-            const result = await fetch(`http://localhost:5000/cartproducts/${user?.email}`);
+            const result = await fetch(`https://accessories-hero-server.vercel.app/cartproducts/${user?.email}`);
             const data = await result.json()
             return data
         }
@@ -20,7 +20,7 @@ const CardDrawer = ({ toggleDrawer }) => {
     const totalprice = prices.reduce((acc, curr) => acc + curr, 0)
     refetch()
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/cartproduct/${id}`, {
+        fetch(`https://accessories-hero-server.vercel.app/cartproduct/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

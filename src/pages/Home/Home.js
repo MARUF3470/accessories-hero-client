@@ -8,12 +8,13 @@ import { useQuery } from 'react-query';
 import AdvertiseProduct from './AdvertiseProduct';
 import QuickViewModal from '../shop/QuickViewModal';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const Home = () => {
     const [quickView, setQuickView] = useState(null)
     const { data: products = [], refetch, isError } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const result = await fetch('http://localhost:5000/products');
+            const result = await fetch('https://accessories-hero-server.vercel.app/products');
             const data = await result.json()
             return data
         }
@@ -61,7 +62,7 @@ const Home = () => {
                     </div>
                 </div>
                 {
-                    advertiseProducts.length ? <div className='grid lg:grid-cols-4'>
+                    advertiseProducts.length ? <div className='grid gap-2 grid-cols-2 lg:grid-cols-5'>
                         {
                             advertiseProducts.map(advertiseProduct => <AdvertiseProduct key={advertiseProduct._id} advertiseProduct={advertiseProduct} refetch={refetch} setQuickView={setQuickView}></AdvertiseProduct>)
                         }
@@ -73,7 +74,7 @@ const Home = () => {
                         <div>
                             <h1 className="mb-5 text-5xl font-bold">Want To Have The New Iphone?</h1>
                             <p className="mb-5">Visit our store to get the lestest phone and be the first user</p>
-                            <button className='btn  hover:bg-zinc-900 border-zinc-800 rounded-none mt-4 lg:mt-10'>Shop Now <BsArrowRight className='w-5 h-5 ml-1'></BsArrowRight></button>
+                            <button className='btn  hover:bg-zinc-900 border-zinc-800 rounded-none mt-4 lg:mt-10'><Link to='/shop'>Shop Now <BsArrowRight className='w-5 h-5 ml-1'></BsArrowRight></Link></button>
                         </div>
                     </div>
                 </div>

@@ -11,6 +11,10 @@ import Login from "../pages/Register/Login";
 import Register from "../pages/Register/Register";
 import Shop from "../pages/shop/Shop";
 import Wishlist from "../pages/Wishlist/Wishlist";
+import Users from "../Users/Users";
+import PrivateRoute from "./PrivateRoute";
+import AdminePriveteRoute from "./AdminePriveteRoute";
+import ProductDetails from "../pages/shop/ProductDetails";
 
 const router = createBrowserRouter([
     {
@@ -22,12 +26,16 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: '/users',
+                element: <AdminePriveteRoute><Users></Users></AdminePriveteRoute>
+            },
+            {
                 path: '/shop',
                 element: <Shop></Shop>
             },
             {
                 path: '/addproduct',
-                element: <AddProduct></AddProduct>
+                element: <AdminePriveteRoute><AddProduct></AddProduct></AdminePriveteRoute>
             },
             {
                 path: '/about',
@@ -47,21 +55,32 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <ProductsType></ProductsType>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                element: <PrivateRoute><ProductsType></ProductsType></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://accessories-hero-server.vercel.app/products/${params.id}`)
             },
             {
                 path: '/wishlist',
-                element: <Wishlist></Wishlist>
+                element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>
             },
             {
                 path: '/myproducts',
-                element: <MyProducts></MyProducts>
+                element: <AdminePriveteRoute><MyProducts></MyProducts></AdminePriveteRoute>
             },
             {
                 path: '/cartitems',
-                element: <CartItems></CartItems>
-            }
+                element: <PrivateRoute><CartItems></CartItems></PrivateRoute>
+            },
+            {
+                path: '/details/:id',
+                element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://accessories-hero-server.vercel.app/product/${params.id}`, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('ACCESSORIES_HERO-token')}`
+                    }
+                })
+
+            },
+
         ]
     }
 ])
